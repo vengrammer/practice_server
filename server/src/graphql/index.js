@@ -1,25 +1,21 @@
-import userSchema from "./user/user.schema.js";
-import userResolvers from "./user/user.resolver.js";
+//import for the schema
+import { userSchema } from "./schema/user.schema.js";
 
-import projectSchema from "./project/project.schema.js";
-import projectResolvers from "./project/project.resolver.js";
+//import for the resolver
+import { userResolvers } from "./resolver/user.resolver.js";
 
 const typeDefs = `
   type Query
   type Mutation
-
   ${userSchema}
-  ${projectSchema}
 `;
 
 const resolvers = {
   Query: {
     ...userResolvers.Query,
-    ...projectResolvers.Query,
   },
   Mutation: {
     ...userResolvers.Mutation,
-    ...projectResolvers.Mutation,
   },
 };
 
